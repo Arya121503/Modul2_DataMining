@@ -1,0 +1,9 @@
+env/
+__pycache__/
+*.pyc
+
+data/processed/
+results/
+
+ALUR_PENGAJAR.md
+[IDN] Modul 2 - Pemodelan Data (1).pdf
