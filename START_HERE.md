@@ -1,223 +1,51 @@
-# 🚀 START HERE - Panduan Awal Praktikum
+# START HERE - Panduan Awal Praktikum
 
-Selamat datang di **Modul 2 - Pemodelan Data (Data Modeling)**! 
+Ini adalah pintu masuk paling cepat untuk menjalankan project.
 
-Ini adalah project praktikum lengkap untuk belajar data mining & machine learning.
+## Langkah Cepat
 
----
+1. Buka terminal di folder project.
+2. Buat dan aktifkan virtual environment.
+3. Install library dari requirements.
+4. Jalankan demo dengan `python quick_start.py`.
+5. Buka [notebooks/1_eda.ipynb](notebooks/1_eda.ipynb) kalau ingin eksplorasi manual.
 
-## ⚡ 5 Menit Quick Start
+## Jika Baru Pertama Kali
 
-### Step 1: Setup (2 menit)
 ```bash
-# Buka terminal di folder modul2_datamining
-
-# 1. Buat virtual environment
 python -m venv venv
-
-# 2. Aktivasi (Windows)
 venv\Scripts\activate
-# atau (Linux/Mac)
-source venv/bin/activate
-
-# 3. Install libraries
 pip install -r requirements.txt
-```
-
-### Step 2: Jalankan Demo (1 menit)
-```bash
-# Jalankan contoh lengkap dengan sample data
 python quick_start.py
 ```
 
-### Step 3: Explore (2 menit)
-```bash
-# Buka Jupyter
-jupyter notebook
+## Alur Belajar yang Disarankan
 
-# Buka notebooks/1_eda.ipynb untuk explore lebih lanjut
-```
+1. Baca [README.md](README.md) untuk ringkasan project dan dataset yang cocok.
+2. Jalankan `quick_start.py` untuk memastikan environment sudah benar.
+3. Buka notebook secara berurutan:
+   1. [notebooks/1_eda.ipynb](notebooks/1_eda.ipynb)
+   2. [notebooks/2_preprocessing.ipynb](notebooks/2_preprocessing.ipynb)
+   3. [notebooks/3_modeling.ipynb](notebooks/3_modeling.ipynb)
 
----
+## Catatan Dataset
 
-## 📚 Dokumentasi Lengkap
+- Gunakan file CSV yang disimpan sebagai `data/raw/dataset.csv`.
+- Dataset terbaik adalah yang punya kolom numerik dan kategorikal.
+- Untuk klasifikasi, target biner biasanya paling aman untuk latihan awal.
 
-Baca file-file ini sesuai urutan:
+## Modul Utama
 
-### 1️⃣ **[README.md](README.md)** ← BACA INI DULU (15 menit)
-Dokumentasi lengkap yang mencakup:
-- Instalasi lengkap
-- Penjelasan setiap library
-- 7 steps alur kerja dengan contoh code
-- Tips & troubleshooting
+- `src/data_loader.py` untuk membaca data.
+- `src/preprocessing.py` untuk cleaning dan encoding.
+- `src/model.py` untuk training dan tuning.
+- `src/evaluation.py` untuk evaluasi model.
 
-### 2️⃣ **[ALUR_PRAKTIKUM.md](ALUR_PRAKTIKUM.md)** (5 menit)
-Ringkasan singkat:
-- Struktur project
-- Library yang digunakan
-- Alur kerja 7 steps
+## File yang Perlu Diperhatikan
 
-### 3️⃣ **[PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)** (10 menit)
-Detail setiap file:
-- Penjelasan fungsi setiap module
-- Contoh penggunaan setiap class
-- Method-method yang tersedia
-
-### 4️⃣ **[CHECKLIST.md](CHECKLIST.md)** (5 menit)
-Checklist setup:
-- File yang telah dibuat
-- Pre-praktikum checklist
-- Learning path
-
----
-
-## 🎯 Alur 7 Steps Praktikum
-
-Praktikum ini mengikuti 7 steps berikut:
-
-```
-1. DATA LOADING           → Load dan explore data
-2. EDA (Analisis)         → Pahami data dengan visualisasi
-3. PREPROCESSING          → Clean data (missing, outliers, encoding)
-4. FEATURE ENGINEERING    → Buat & pilih features
-5. MODEL BUILDING         → Train berbagai models
-6. MODEL EVALUATION       → Bandingkan & evaluate
-7. DOCUMENTATION          → Simpan & document hasil
-```
-
-Setiap step memiliki:
-- 📄 Python module siap pakai di folder `src/`
-- 📓 Jupyter notebook template (di folder `notebooks/`)
-- 💻 Contoh code di `quick_start.py`
-
----
-
-## 📁 File Structure
-
-```
-modul2_datamining/
-├── 📄 README.md                ← Baca ini untuk dokumentasi lengkap
-├── 📄 ALUR_PRAKTIKUM.md       ← Ringkasan alur
-├── 📄 PROJECT_STRUCTURE.md    ← Detail struktur project
-├── 📄 CHECKLIST.md            ← Pre-praktikum checklist
-├── 📄 START_HERE.md           ← File ini!
-├── 📄 requirements.txt         ← List library
-├── 📄 quick_start.py           ← Contoh jalan (python quick_start.py)
-│
-├── 📁 src/                     ← Python modules (siap pakai!)
-│   ├── data_loader.py          ← Step 1: Load data
-│   ├── preprocessing.py        ← Step 3: Clean data
-│   ├── feature_engineering.py  ← Step 4: Feature engineering
-│   ├── model.py                ← Step 5: Train models
-│   └── evaluation.py           ← Step 6: Evaluate models
-│
-├── 📁 data/
-│   ├── raw/                    ← Letakkan dataset.csv di sini!
-│   └── processed/              ← Hasil preprocessing
-│
-├── 📁 notebooks/               ← Jupyter notebooks
-│   ├── 1_eda.ipynb            ← Exploratory analysis
-│   ├── 2_preprocessing.ipynb   ← Data cleaning
-│   └── 3_modeling.ipynb       ← Model building
-│
-└── 📁 results/
-    ├── models/                 ← Trained models disimpan di sini
-    └── reports/                ← Analysis reports & plots
-```
-
----
-
-## 💾 Siapkan Dataset Anda
-
-1. **Download atau siapkan dataset CSV Anda**
-2. **Letakkan di folder:** `data/raw/dataset.csv`
-3. **Ubah nama file di code jika berbeda** (search & replace `dataset.csv`)
-
-Format yang diterima:
-- ✅ CSV dengan headers (kolom names)
-- ✅ Numeric & categorical columns
-- ✅ Boleh ada missing values (akan dihandle)
-
----
-
-## 🚀 3 Cara Menggunakan Project Ini
-
-### **Cara 1: Quick Demo (Paling Cepat)**
-Cocok jika Anda ingin lihat semua 7 steps dalam 1 script:
-
-```bash
-python quick_start.py
-```
-
-Output: Menampilkan hasil semua 7 steps menggunakan sample data.
-
----
-
-### **Cara 2: Jupyter Notebook (Paling Interaktif)**
-Cocok untuk explorasi & learning:
-
-```bash
-jupyter notebook
-# Buat atau buka notebooks di folder notebooks/
-```
-
-Keuntungan:
-- ✅ Lihat output setiap cell
-- ✅ Visualisasi langsung
-- ✅ Easy to modify & experiment
-
----
-
-### **Cara 3: Custom Python Script (Paling Fleksibel)**
-Cocok jika ingin custom alur:
-
-```python
-# my_analysis.py
-from src import DataLoader, DataPreprocessor, ModelBuilder, ModelEvaluator
-
-# Buat custom pipeline sesuai kebutuhan
-loader = DataLoader("data/raw")
-df = loader.load_csv("dataset.csv")
-
-# ... lanjutkan custom code
-```
-
----
-
-## 📚 Python Modules (Siap Pakai!)
-
-Project ini sudah memiliki 5 modules siap pakai:
-
-### **1. DataLoader** (data_loader.py)
-```python
-from src.data_loader import DataLoader
-
-loader = DataLoader("data/raw")
-df = loader.load_csv("dataset.csv")
-loader.get_data_info(df)
-```
-Functions: `load_csv()`, `get_data_info()`, `check_duplicates()`
-
-### **2. DataPreprocessor** (preprocessing.py)
-```python
-from src.preprocessing import DataPreprocessor
-
-preprocessor = DataPreprocessor()
-df = preprocessor.handle_missing_values(df, strategy='mean')
-df = preprocessor.encode_categorical(df, ['col1', 'col2'])
-df = preprocessor.normalize_scale(df, numeric_cols)
-```
-Functions: `handle_missing_values()`, `handle_outliers()`, `encode_categorical()`, `normalize_scale()`
-
-### **3. FeatureEngineer** (feature_engineering.py)
-```python
-from src.feature_engineering import FeatureEngineer
-
-engineer = FeatureEngineer()
-best_features = engineer.select_best_features(X, y, k=10)
-X_pca = engineer.apply_pca(X, n_components=0.95)
-```
-Functions: `select_best_features()`, `apply_pca()`, `create_polynomial_features()`, dll
+- [README.md](README.md) untuk dokumentasi utama.
+- [ALUR_PRAKTIKUM.md](ALUR_PRAKTIKUM.md) untuk ringkasan alur praktikum.
+- [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md) untuk detail struktur file.
 
 ### **4. ModelBuilder** (model.py)
 ```python
