@@ -194,5 +194,3 @@ Berikutnya, baca [README.md](README.md) untuk dokumentasi lengkap.
 ---
 
 ### File dibuat: May 17, 2026
-### Status: ✅ Ready to use
-### Version: 1.0.0
