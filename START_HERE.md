@@ -1,14 +1,15 @@
 # START HERE - Panduan Awal Praktikum
 
-Ini adalah pintu masuk paling cepat untuk menjalankan project.
+Project ini dibuat supaya mahasiswa bisa langsung clone, install, lalu menjalankan praktikum tanpa langkah tambahan yang rumit.
 
 ## Langkah Cepat
 
-1. Buka terminal di folder project.
-2. Buat dan aktifkan virtual environment.
-3. Install library dari requirements.
-4. Jalankan demo dengan `python quick_start.py`.
-5. Buka [notebooks/1_eda.ipynb](notebooks/1_eda.ipynb) kalau ingin eksplorasi manual.
+1. Clone repository ini.
+2. Buka terminal di folder project.
+3. Buat dan aktifkan virtual environment.
+4. Install dependencies dari requirements.
+5. Jalankan demo dengan `python quick_start.py`.
+6. Buka notebook kalau ingin eksplorasi manual.
 
 ## Jika Baru Pertama Kali
 
