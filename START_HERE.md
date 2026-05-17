@@ -99,42 +99,6 @@ Total 13 libraries di `requirements.txt`
 
 ---
 
-## 🎓 Learning Path (6 Minggu)
-
-```
-Minggu 1: Setup & Understanding
-  • Setup environment
-  • Baca dokumentasi
-  • Jalankan quick_start.py
-
-Minggu 2: Data Loading & EDA
-  • Pahami data Anda
-  • Create notebook 1_eda.ipynb
-  • Explore dengan visualisasi
-
-Minggu 3: Preprocessing
-  • Clean data
-  • Handle missing values & outliers
-  • Create notebook 2_preprocessing.ipynb
-
-Minggu 4: Feature Engineering & Modeling
-  • Create features
-  • Train models
-  • Create notebook 3_modeling.ipynb
-
-Minggu 5: Evaluation
-  • Evaluate models
-  • Hyperparameter tuning
-  • Compare performance
-
-Minggu 6: Final & Presentation
-  • Select best model
-  • Document findings
-  • Present hasil
-```
-
----
-
 ## 🆘 Troubleshooting
 
 ### Q: "Module not found" error?
