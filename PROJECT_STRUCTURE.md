@@ -7,6 +7,7 @@ modul2_datamining/
 │
 ├── 📄 README.md                          ← Dokumentasi utama (START HERE!)
 ├── 📄 ALUR_PRAKTIKUM.md                 ← Panduan alur praktikum
+├── 📄 SRC_PENJELASAN.md                 ← Penjelasan sederhana isi src
 ├── 📄 requirements.txt                   ← Daftar library yang diperlukan
 ├── 📄 quick_start.py                     ← Script contoh cepat
 ├── 📄 PROJECT_STRUCTURE.md              ← File ini
@@ -23,12 +24,14 @@ modul2_datamining/
 │   ├── preprocessing.py                 ← Modul 2: Data cleaning
 │   ├── feature_engineering.py           ← Modul 3: Feature engineering
 │   ├── model.py                         ← Modul 4: Model building
-│   └── evaluation.py                    ← Modul 5: Model evaluation
+│   ├── evaluation.py                    ← Modul 5: Model evaluation
+│   └── clustering.py                    ← Modul 6: Clustering unsupervised
 │
 ├── 📁 notebooks/                        ← Jupyter Notebooks (kosong - dibuat saat praktikum)
 │   ├── 1_eda.ipynb                      ← Exploratory Data Analysis
 │   ├── 2_preprocessing.ipynb            ← Data preprocessing
-│   └── 3_modeling.ipynb                 ← Model building & evaluation
+│   ├── 3_modeling.ipynb                 ← Model building & evaluation
+│   └── 4_clustering.ipynb               ← Clustering & unsupervised learning
 │
 └── 📁 results/                          ← Hasil & output
     ├── models/                          ← Trained models (.pkl files)
@@ -104,7 +107,7 @@ python quick_start.py
 Membuat folder `src` menjadi Python package yang bisa diimport.
 
 ```python
-from src import DataLoader, DataPreprocessor, FeatureEngineer, ModelBuilder, ModelEvaluator
+from src import DataLoader, DataPreprocessor, FeatureEngineer, ModelBuilder, ModelEvaluator, ClusterAnalyzer
 ```
 
 ---
@@ -235,6 +238,30 @@ comparison = evaluator.compare_models({'Model1': m1, 'Model2': m2}, X_test, y_te
 
 ---
 
+### **src/clustering.py** 🧭
+**Fungsi:** Clustering dan evaluasi unsupervised learning
+
+**Kelas:** `ClusterAnalyzer`
+
+**Metode penting:**
+- `prepare_features()` - pilih dan scale fitur numerik
+- `fit_kmeans()` - latih KMeans
+- `evaluate_clustering()` - hitung silhouette score dan ARI
+- `find_best_k()` - coba beberapa nilai cluster
+- `reduce_to_2d()` - reduksi dimensi untuk visualisasi
+
+**Contoh penggunaan: **
+```python
+from src.clustering import ClusterAnalyzer
+
+clusterer = ClusterAnalyzer()
+X_scaled = clusterer.prepare_features(df)
+labels = clusterer.fit_kmeans(X_scaled, n_clusters=3)
+metrics = clusterer.evaluate_clustering(X_scaled, labels, y_true=df['purchased'])
+```
+
+---
+
 ## 🚀 Cara Memulai
 
 ### **Opsi 1: Quick Start (Cepat)**
@@ -247,7 +274,7 @@ python quick_start.py
 ```bash
 cd modul2_datamining
 jupyter notebook
-# Buka notebooks/1_eda.ipynb, 2_preprocessing.ipynb, 3_modeling.ipynb
+# Buka notebooks/1_eda.ipynb, 2_preprocessing.ipynb, 3_modeling.ipynb, 4_clustering.ipynb
 ```
 
 ### **Opsi 3: Python Script (Custom)**

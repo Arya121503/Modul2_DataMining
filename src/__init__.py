@@ -5,13 +5,15 @@ from .preprocessing import DataPreprocessor
 from .feature_engineering import FeatureEngineer
 from .model import ModelBuilder
 from .evaluation import ModelEvaluator
+from .clustering import ClusterAnalyzer
 
 __all__ = [
     'DataLoader',
     'DataPreprocessor', 
     'FeatureEngineer',
     'ModelBuilder',
-    'ModelEvaluator'
+    'ModelEvaluator',
+    'ClusterAnalyzer'
 ]
 
 __version__ = '1.0.0'

@@ -17,7 +17,7 @@ Kalau ingin eksplorasi interaktif, buka [notebooks/1_eda.ipynb](notebooks/1_eda.
 ## Isi Project
 
 - `data/raw/` untuk data mentah. File default adalah `dataset.csv`.
-- `notebooks/` untuk praktik EDA, preprocessing, dan modeling.
+- `notebooks/` untuk praktik EDA, preprocessing, modeling, dan clustering.
 - `src/` untuk modul utama yang dipakai ulang oleh notebook dan script.
 - `results/` untuk output model dan hasil analisis saat dijalankan lokal.
 
@@ -55,6 +55,7 @@ Kalau mahasiswa merasa folder `src` terlalu kompleks, baca dulu [SRC_PENJELASAN.
 1. [notebooks/1_eda.ipynb](notebooks/1_eda.ipynb) - eksplorasi data.
 2. [notebooks/2_preprocessing.ipynb](notebooks/2_preprocessing.ipynb) - cleaning dan encoding.
 3. [notebooks/3_modeling.ipynb](notebooks/3_modeling.ipynb) - split, training, dan evaluasi.
+4. [notebooks/4_clustering.ipynb](notebooks/4_clustering.ipynb) - clustering dan evaluasi unsupervised.
 
 ## Modul Utama di src
 
@@ -62,6 +63,7 @@ Kalau mahasiswa merasa folder `src` terlalu kompleks, baca dulu [SRC_PENJELASAN.
 - `src/preprocessing.py` untuk handling missing value, encoding, dan scaling.
 - `src/model.py` untuk split data, training, cross-validation, dan GridSearchCV.
 - `src/evaluation.py` untuk accuracy, precision, recall, F1, confusion matrix, dan ROC curve.
+- `src/clustering.py` untuk KMeans, silhouette score, dan adjusted rand index.
 
 ## Library Inti
 

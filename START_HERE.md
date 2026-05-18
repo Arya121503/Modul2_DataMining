@@ -28,6 +28,7 @@ python quick_start.py
    1. [notebooks/1_eda.ipynb](notebooks/1_eda.ipynb)
    2. [notebooks/2_preprocessing.ipynb](notebooks/2_preprocessing.ipynb)
    3. [notebooks/3_modeling.ipynb](notebooks/3_modeling.ipynb)
+   4. [notebooks/4_clustering.ipynb](notebooks/4_clustering.ipynb)
 
 ## Catatan Dataset
 
@@ -42,6 +43,7 @@ python quick_start.py
 - `src/preprocessing.py` untuk cleaning dan encoding.
 - `src/model.py` untuk training dan tuning.
 - `src/evaluation.py` untuk evaluasi model.
+- `src/clustering.py` untuk clustering dan evaluasi unsupervised.
 
 ## File yang Perlu Diperhatikan
 

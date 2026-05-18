@@ -14,7 +14,8 @@ modul2_datamining/
 ├── notebooks/                    # Jupyter Notebooks untuk eksplorasi
 │   ├── 1_eda.ipynb              # Exploratory Data Analysis
 │   ├── 2_data_preprocessing.ipynb # Persiapan data
-│   └── 3_modeling.ipynb         # Pemodelan dan evaluasi
+│   ├── 3_modeling.ipynb         # Pemodelan dan evaluasi
+│   └── 4_clustering.ipynb       # Clustering dan evaluasi unsupervised
 │
 ├── src/                         # Source code
 │   ├── data_loader.py           # Loading dan membaca data
@@ -93,6 +94,12 @@ modul2_datamining/
 - ROC-AUC curve
 - Classification report
 
+### **Step 6b: Clustering (Unsupervised)**
+- KMeans clustering
+- Silhouette score
+- Adjusted Rand Index (ARI)
+- Visualisasi cluster dengan PCA
+
 ### **Step 7: Interpretasi & Dokumentasi**
 - Analisis hasil
 - Kesimpulan
@@ -127,7 +134,7 @@ cd modul2_datamining
 # 2. Buka Jupyter Notebook
 jupyter notebook
 
-# 3. Buka file 1_eda.ipynb untuk memulai
+# 3. Buka file 1_eda.ipynb untuk memulai, lalu lanjutkan ke 4_clustering.ipynb jika ingin topik unsupervised
 ```
 
 ---
