@@ -25,14 +25,15 @@ print("-"*60)
 
 loader = DataLoader("data/raw")
 
-dataset_filename = "dataset.csv"
-dataset_path = Path("data/raw") / dataset_filename
+dataset_candidates = ["customer_purchase_data.csv", "dataset.csv"]
+dataset_filename = next((name for name in dataset_candidates if (Path("data/raw") / name).exists()), None)
 
-if dataset_path.exists():
+if dataset_filename is not None:
+    dataset_path = Path("data/raw") / dataset_filename
     print(f"📥 Memuat dataset dari: {dataset_path.as_posix()}")
     df = loader.load_csv(dataset_filename)
 else:
-    print("📝 dataset.csv tidak ditemukan, membuat sample dataset untuk demo...")
+    print("📝 Dataset tidak ditemukan, membuat sample dataset untuk demo...")
     df = pd.DataFrame({
         'age': [25, 30, 35, 40, 45, 50, 55, 60, 65, 70] * 10,
         'income': [30000, 35000, 40000, 45000, 50000, 55000, 60000, 65000, 70000, 75000] * 10,

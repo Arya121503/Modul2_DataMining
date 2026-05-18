@@ -31,7 +31,8 @@ python quick_start.py
 
 ## Catatan Dataset
 
-- Gunakan file CSV yang disimpan sebagai `data/raw/dataset.csv`.
+- Demo utama sekarang memakai `data/raw/customer_purchase_data.csv`.
+- Kalau ingin memakai dataset lain, simpan file CSV di `data/raw/dataset.csv` atau sesuaikan nama file di notebook.
 - Dataset terbaik adalah yang punya kolom numerik dan kategorikal.
 - Untuk klasifikasi, target biner biasanya paling aman untuk latihan awal.
 

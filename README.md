@@ -38,7 +38,17 @@ Contoh dataset yang cocok:
 | Adult Income | klasifikasi biner | perlu encoding kategorikal |
 | Bank Marketing | klasifikasi biner | bagus untuk latihan evaluasi |
 
+Kalau ingin dataset yang lebih mudah dipahami mahasiswa, gunakan file baru ini:
+
+- `data/raw/customer_purchase_data.csv`
+
+File ini lebih realistis karena berisi data sederhana tentang umur, pendapatan, pendidikan, pengalaman kerja, pengeluaran bulanan, dan label pembelian.
+
 Kalau memakai dataset sendiri, simpan sebagai `data/raw/dataset.csv` atau ubah nama file di notebook.
+
+## Penjelasan Kode di src
+
+Kalau mahasiswa merasa folder `src` terlalu kompleks, baca dulu [SRC_PENJELASAN.md](SRC_PENJELASAN.md). File itu menjelaskan fungsi setiap modul dengan bahasa sederhana.
 
 ## Notebook yang Tersedia
 
