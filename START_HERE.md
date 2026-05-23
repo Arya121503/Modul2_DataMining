@@ -157,9 +157,11 @@ pip install -r requirements.txt
 # Run
 python quick_start.py
 jupyter notebook
+streamlit run app.py
 
 # Check
 python -c "import pandas; print('OK')"
+python test_deployment.py
 ```
 
 ---

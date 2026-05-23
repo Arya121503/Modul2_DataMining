@@ -17,3 +17,5 @@ ipython>=7.0.0
 
 # Additional utilities
 python-dotenv>=1.0.0
+streamlit>=1.30.0
+pyngrok>=7.0.0

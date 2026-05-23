@@ -57,6 +57,37 @@ Kalau mahasiswa merasa folder `src` terlalu kompleks, baca dulu [SRC_PENJELASAN.
 3. [notebooks/3_modeling.ipynb](notebooks/3_modeling.ipynb) - split, training, dan evaluasi.
 4. [notebooks/4_clustering.ipynb](notebooks/4_clustering.ipynb) - clustering dan evaluasi unsupervised.
 
+## Deployment Model (Streamlit)
+
+Project ini dilengkapi dengan fitur deployment model menggunakan **Streamlit** (dari Modul 3) untuk membuat antarmuka web interaktif yang secara instan.
+
+### Cara Menjalankan Deployment
+1. **Latih Model Terlebih Dahulu**:
+   Pastikan telah menjalankan training model untuk menghasilkan file model, preprocessor, dan metadata:
+   ```bash
+   python quick_start.py
+   ```
+2. **Jalankan Uji Verifikasi (Optional)**:
+   Gunakan script uji untuk memastikan semua file model & preprocessing ter-deserialisasi dengan benar:
+   ```bash
+   python test_deployment.py
+   ```
+3. **Jalankan Aplikasi Web Streamlit**:
+   Jalankan server lokal Streamlit:
+   ```bash
+   streamlit run app.py
+   ```
+   Buka browser Anda dan akses halaman di: `http://localhost:8501`.
+
+### File Terkait Deployment
+* **[app.py](/modul2_datamining/app.py)**: Aplikasi utama Streamlit dengan desain glassmorphic dark mode, slider input otomatis, dan visualisasi hasil prediksi.
+* **[test_deployment.py](/modul2_datamining/test_deployment.py)**: Script uji integrasi untuk memastikan preprocessor, scaler, dan model berjalan sinkron.
+* **`results/models/`**:
+  * `best_model.pkl`: Serialisasi model terbaik (Logistic Regression / Random Forest).
+  * `preprocessor.pkl`: Serialisasi encoder kategori (dari fitting training data).
+  * `scaler.pkl`: Serialisasi standardizer data numerik.
+  * `feature_metadata.pkl`: Serialisasi range numerik & kelas kategori untuk UI dinamis.
+
 ## Modul Utama di src
 
 - `src/data_loader.py` untuk membaca data.

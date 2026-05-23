@@ -155,6 +155,32 @@ print("-"*60)
 best_model = model_rf if metrics_rf['accuracy'] > metrics_lr['accuracy'] else model_lr
 builder.save_model(best_model, 'results/models/best_model.pkl')
 
+# Save preprocessors and metadata for deployment
+builder.save_model(preprocessor, 'results/models/preprocessor.pkl')
+builder.save_model(preprocessor_scaled, 'results/models/scaler.pkl')
+
+# Save features metadata for UI generation
+feature_metadata = {
+    'features': list(X.columns),
+    'target': target_col,
+    'details': {}
+}
+for col in X.columns:
+    if col in categorical_cols:
+        le = preprocessor.label_encoders[col]
+        feature_metadata['details'][col] = {
+            'type': 'categorical',
+            'categories': list(le.classes_)
+        }
+    else:
+        feature_metadata['details'][col] = {
+            'type': 'numeric',
+            'min': float(df[col].min()),
+            'max': float(df[col].max()),
+            'mean': float(df[col].mean())
+        }
+builder.save_model(feature_metadata, 'results/models/feature_metadata.pkl')
+
 # Save processed data
 df_cleaned.to_csv('data/processed/dataset_clean.csv', index=False)
 print("✓ Data processed disimpan: data/processed/dataset_clean.csv")
