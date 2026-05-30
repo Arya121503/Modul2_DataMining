@@ -1,8 +1,15 @@
-# Contoh Quick Start Python Script
-# File ini dapat dijalankan langsung tanpa Jupyter Notebook
+# ============================================================
+# SCRIPT OTOMASI PRAKTIKUM: DATA MINING & DEPLOYMENT
+# ============================================================
+# File ini menjalankan seluruh alur praktikum secara berurutan:
+# - Modul 2: Step 1 sampai Step 6 (Data Loading s/d Evaluation)
+# - Modul 3: Step 7 (Penyimpanan Model & Metadata untuk Web Deployment)
 
 import sys
 sys.path.insert(0, '.')
+# Pastikan terminal menggunakan UTF-8 agar tidak terjadi UnicodeEncodeError pada Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 from src.data_loader import DataLoader
 from src.preprocessing import DataPreprocessor
@@ -14,7 +21,7 @@ import numpy as np
 from pathlib import Path
 
 print("="*60)
-print("MODUL 2 - PEMODELAN DATA: QUICK START EXAMPLE")
+print("             ALUR OTOMATIS: MODUL 2 & MODUL 3")
 print("="*60)
 
 # ============================================================
@@ -146,9 +153,12 @@ comparison = evaluator.compare_models(
 )
 
 # ============================================================
-# STEP 7: SAVE RESULTS
+# MODUL 3: PREPARING MODEL FOR DEPLOYMENT (SERIALIZATION)
 # ============================================================
-print("\n[STEP 7] SAVE RESULTS")
+print("\n" + "="*60)
+print("     MODUL 3: PENYIAPAN MODEL UNTUK DEPLOYMENT (SERIALISASI)")
+print("="*60)
+print("\n[STEP 7] SAVE MODEL & METADATA ARTIFACTS")
 print("-"*60)
 
 # Save best model
@@ -186,20 +196,19 @@ df_cleaned.to_csv('data/processed/dataset_clean.csv', index=False)
 print("✓ Data processed disimpan: data/processed/dataset_clean.csv")
 
 # ============================================================
-# SUMMARY
+# SUMMARY PRAKTIKUM
 # ============================================================
 print("\n" + "="*60)
-print("✓ PRAKTIKUM SELESAI!")
+print("🎉 PROSES MODUL 2 & MODUL 3 SELESAI!")
 print("="*60)
-print(f"✓ Best Model: {'Random Forest' if metrics_rf['accuracy'] > metrics_lr['accuracy'] else 'Logistic Regression'}")
-print(f"✓ Best Accuracy: {max(metrics_rf['accuracy'], metrics_lr['accuracy']):.4f}")
-print("✓ Model disimpan di: results/models/best_model.pkl")
-print("✓ Data processing disimpan di: data/processed/dataset_clean.csv")
+print(f"✓ [Modul 2] Model Terbaik: {'Random Forest' if metrics_rf['accuracy'] > metrics_lr['accuracy'] else 'Logistic Regression'}")
+print(f"✓ [Modul 2] Akurasi Terbaik: {max(metrics_rf['accuracy'], metrics_lr['accuracy']):.4f}")
+print("✓ [Modul 3] Berkas Serialisasi Disimpan di: results/models/")
+print("✓ [Modul 3] Berkas Pembersihan Data Disimpan di: data/processed/dataset_clean.csv")
 print("="*60)
 
-print("\n📚 Next Steps:")
-print("1. Buka Jupyter Notebook untuk explorasi lebih detail")
-print("2. Coba dengan dataset real Anda")
-print("3. Experiment dengan berbagai preprocessing techniques")
-print("4. Optimize hyperparameters untuk hasil lebih baik")
-print("\nHappy Learning! 🚀")
+print("\n📚 Langkah Selanjutnya untuk Mahasiswa:")
+print("1. Buka dan pelajari lembar kerja interaktif di folder 'notebooks/' (Modul 2).")
+print("2. Jalankan pengujian deployment menggunakan: python test_deployment.py")
+print("3. Luncurkan aplikasi web dashboard menggunakan: streamlit run app.py (Modul 3).")
+print("\nSelamat belajar!")
