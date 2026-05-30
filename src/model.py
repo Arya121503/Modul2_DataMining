@@ -255,6 +255,12 @@ class ModelBuilder:
         filename : str
             Path file untuk menyimpan model
         """
+        import os
+        # Membuat folder parent jika belum ada untuk menghindari FileNotFoundError
+        parent_dir = os.path.dirname(filename)
+        if parent_dir and not os.path.exists(parent_dir):
+            os.makedirs(parent_dir, exist_ok=True)
+            
         with open(filename, 'wb') as f:
             pickle.dump(model, f)
         print(f"✓ Model disimpan ke: {filename}")

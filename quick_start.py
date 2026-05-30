@@ -161,6 +161,10 @@ print("="*60)
 print("\n[STEP 7] SAVE MODEL & METADATA ARTIFACTS")
 print("-"*60)
 
+# Pastikan folder output tersedia sebelum menyimpan hasil
+Path("results/models").mkdir(parents=True, exist_ok=True)
+Path("data/processed").mkdir(parents=True, exist_ok=True)
+
 # Save best model
 best_model = model_rf if metrics_rf['accuracy'] > metrics_lr['accuracy'] else model_lr
 builder.save_model(best_model, 'results/models/best_model.pkl')
