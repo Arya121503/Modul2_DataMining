@@ -1,186 +1,127 @@
-# Modul 2 - Pemodelan Data
+# 📚 Panduan Praktikum: Data Mining & Model Deployment
 
-Project ini berisi alur praktikum data mining yang sudah disiapkan untuk langsung dicoba mahasiswa.
+Selamat datang di repository praktikum Data Mining. Repository ini dirancang khusus untuk membantu mahasiswa memahami alur pemodelan data (Modul 2) hingga tahap deployment model menjadi aplikasi web interaktif (Modul 3).
 
-## Quick Start
+---
 
-```bash
-cd modul2_datamining
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.txt
-python quick_start.py
+## 🛠️ Langkah Awal: Setup Environment
+Sebelum memulai salah satu modul, pastikan Anda telah menyiapkan environment Python terlebih dahulu:
+
+1. **Buka Terminal/Command Prompt** di folder project `modul2_datamining`.
+2. **Buat Virtual Environment**:
+   ```bash
+   python -m venv env
+   ```
+3. **Aktifkan Virtual Environment**:
+   * **Windows**:
+     ```powershell
+     env\Scripts\activate
+     ```
+   * **Linux / macOS**:
+     ```bash
+     source env/bin/activate
+     ```
+4. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## 📁 Struktur Folder Proyek
+Berikut adalah pembagian file dan folder berdasarkan materi praktikum:
+
+```text
+modul2_datamining/
+│
+├── 📄 requirements.txt               # Dependencies/library Python yang diperlukan
+├── 📄 README.md                      # Dokumentasi utama (file ini)
+├── 📄 SRC_PENJELASAN.md              # Penjelasan detail modul di folder src/
+│
+├── 📁 data/                          # Manajemen data
+│   ├── raw/                          # Dataset mentah (original)
+│   │   └── customer_purchase_data.csv
+│   └── processed/                    # Dataset hasil pembersihan (clean)
+│       └── dataset_clean.csv
+│
+├── 📁 src/                           # Modul kode Python yang digunakan bersama
+│   ├── __init__.py
+│   ├── data_loader.py
+│   ├── preprocessing.py
+│   ├── feature_engineering.py
+│   ├── model.py
+│   └── evaluation.py
+│
+├── 📁 notebooks/                     # Jupyter Notebook untuk lembar kerja mahasiswa
+│   ├── 1_eda.ipynb                  # Modul 2: Eksplorasi Data
+│   ├── 2_preprocessing.ipynb        # Modul 2: Pembersihan Data
+│   ├── 3_modeling.ipynb             # Modul 2: Pemodelan & Evaluasi
+│   └── 4_clustering.ipynb           # Topik Tambahan: Unsupervised Learning (Clustering)
+│
+├── 📁 results/                       # Penyimpanan model dan laporan
+│   └── models/                       # File model ter-serialisasi (.pkl) untuk Modul 3
+│
+├── 📄 quick_start.py                 # Script otomasi alur Modul 2 & 3
+├── 📄 app.py                         # Modul 3: Dashboard Web Deployment Streamlit
+└── 📄 test_deployment.py             # Modul 3: Script verifikasi fungsionalitas model
 ```
 
-Kalau ingin eksplorasi interaktif, buka [notebooks/1_eda.ipynb](notebooks/1_eda.ipynb).
+---
 
-## Isi Project
+## 🧪 MODUL 2: PEMODELAN DATA (MACHINE LEARNING PIPELINE)
+Modul ini berfokus pada alur pembuatan model machine learning untuk klasifikasi biner, mulai dari membaca data hingga melakukan evaluasi performa.
 
-- `data/raw/` untuk data mentah. File default adalah `dataset.csv`.
-- `notebooks/` untuk praktik EDA, preprocessing, modeling, dan clustering.
-- `src/` untuk modul utama yang dipakai ulang oleh notebook dan script.
-- `results/` untuk output model dan hasil analisis saat dijalankan lokal.
+### A. Alur Kerja Praktikum Modul 2
+Alur kerja pemodelan diimplementasikan secara modular di dalam folder `src/`:
+1. **Data Loading** (`src/data_loader.py`): Memuat dataset mentah dari format CSV.
+2. **Exploratory Data Analysis (EDA)** (`notebooks/1_eda.ipynb`): Memahami karakteristik data melalui visualisasi dan statistik deskriptif.
+3. **Data Preprocessing** (`src/preprocessing.py`): Menangani missing values, outliers, standardisasi skala, dan encoding kolom kategorikal.
+4. **Feature Engineering** (`src/feature_engineering.py`): Membuat fitur baru, melakukan seleksi fitur terbaik, atau reduksi dimensi (PCA).
+5. **Model Building** (`src/model.py`): Memisahkan data (train-test split), melatih algoritma (Logistic Regression, Random Forest, SVM), serta optimasi parameter menggunakan GridSearchCV.
+6. **Model Evaluation** (`src/evaluation.py`): Mengukur kinerja model menggunakan metrik akurasi, presisi, recall, F1-score, Confusion Matrix, dan kurva ROC.
 
-## Dataset yang Disarankan
+### B. Cara Menjalankan Modul 2
+* **Opsi Interaktif (Jupyter Notebook)**:
+  Jalankan perintah berikut di terminal:
+  ```bash
+  jupyter notebook
+  ```
+  Buka dan kerjakan lembar kerja mahasiswa secara berurutan di dalam folder `notebooks/` mulai dari `1_eda.ipynb` hingga `3_modeling.ipynb`.
+  
+* **Opsi Cepat (Otomatis)**:
+  Jalankan script python berikut untuk mengeksekusi seluruh pipeline dari data loading hingga model training secara otomatis:
+  ```bash
+  python quick_start.py
+  ```
 
-Project ini paling aman dipakai dengan dataset yang:
+---
 
-- punya kolom numerik dan kategorikal,
-- punya target klasifikasi biner,
-- ukurannya tidak terlalu besar.
+## 🚀 MODUL 3: MODEL DEPLOYMENT (DASHBOARD WEB)
+Modul ini berfokus pada bagaimana model yang telah dilatih pada Modul 2 dapat disimpan dan diintegrasikan ke dalam antarmuka web interaktif menggunakan framework **Streamlit**.
 
-Contoh dataset yang cocok:
+### A. Cara Kerja Deployment
+1. **Serialisasi Model**:
+   Saat menjalankan `quick_start.py`, model terbaik dan objek preprocessing diserialisasi (disimpan) menggunakan modul `pickle` ke dalam folder `results/models/` sebagai berkas berikut:
+   * `best_model.pkl`: Model terbaik yang telah dilatih.
+   * `preprocessor.pkl`: Objek encoder kolom kategorikal.
+   * `scaler.pkl`: Objek penyesuaian skala data numerik.
+   * `feature_metadata.pkl`: Berkas informasi tentang daftar kolom, tipe data, serta nilai minimum/maksimum dari data training untuk menghasilkan elemen antarmuka web secara otomatis.
+2. **Deserialisasi**:
+   Aplikasi Streamlit (`app.py`) memuat kembali berkas-berkas `.pkl` tersebut untuk memproses input baru dari pengguna dan menghasilkan prediksi secara instan.
 
-| Dataset | Cocok untuk | Catatan |
-|---------|-------------|---------|
-| Titanic | klasifikasi biner | mudah dipahami, banyak contoh online |
-| Breast Cancer Wisconsin | klasifikasi biner | cepat, cocok untuk demo |
-| Adult Income | klasifikasi biner | perlu encoding kategorikal |
-| Bank Marketing | klasifikasi biner | bagus untuk latihan evaluasi |
-
-Kalau ingin dataset yang lebih mudah dipahami mahasiswa, gunakan file baru ini:
-
-- `data/raw/customer_purchase_data.csv`
-
-File ini lebih realistis karena berisi data sederhana tentang umur, pendapatan, pendidikan, pengalaman kerja, pengeluaran bulanan, dan label pembelian.
-
-Kalau memakai dataset sendiri, simpan sebagai `data/raw/dataset.csv` atau ubah nama file di notebook.
-
-## Penjelasan Kode di src
-
-Kalau mahasiswa merasa folder `src` terlalu kompleks, baca dulu [SRC_PENJELASAN.md](SRC_PENJELASAN.md). File itu menjelaskan fungsi setiap modul dengan bahasa sederhana.
-
-## Notebook yang Tersedia
-
-1. [notebooks/1_eda.ipynb](notebooks/1_eda.ipynb) - eksplorasi data.
-2. [notebooks/2_preprocessing.ipynb](notebooks/2_preprocessing.ipynb) - cleaning dan encoding.
-3. [notebooks/3_modeling.ipynb](notebooks/3_modeling.ipynb) - split, training, dan evaluasi.
-4. [notebooks/4_clustering.ipynb](notebooks/4_clustering.ipynb) - clustering dan evaluasi unsupervised.
-
-## Deployment Model (Streamlit)
-
-Project ini dilengkapi dengan fitur deployment model menggunakan **Streamlit** (dari Modul 3) untuk membuat antarmuka web interaktif yang secara instan.
-
-### Cara Menjalankan Deployment
-1. **Latih Model Terlebih Dahulu**:
-   Pastikan telah menjalankan training model untuk menghasilkan file model, preprocessor, dan metadata:
-   ```bash
-   python quick_start.py
-   ```
-2. **Jalankan Uji Verifikasi (Optional)**:
-   Gunakan script uji untuk memastikan semua file model & preprocessing ter-deserialisasi dengan benar:
+### B. Cara Menjalankan Modul 3
+1. Pastikan Anda telah melatih model terlebih dahulu dengan menjalankan `quick_start.py`. Hal ini diperlukan agar berkas `.pkl` terbentuk di dalam folder `results/models/`.
+2. (Opsional) Jalankan uji integrasi deployment untuk memastikan proses memuat model berfungsi dengan benar:
    ```bash
    python test_deployment.py
    ```
-3. **Jalankan Aplikasi Web Streamlit**:
-   Jalankan server lokal Streamlit:
+3. Jalankan aplikasi web Streamlit:
    ```bash
    streamlit run app.py
    ```
-   Buka browser Anda dan akses halaman di: `http://localhost:8501`.
-
-### File Terkait Deployment
-* **[app.py](/modul2_datamining/app.py)**: Aplikasi utama Streamlit dengan desain glassmorphic dark mode, slider input otomatis, dan visualisasi hasil prediksi.
-* **[test_deployment.py](/modul2_datamining/test_deployment.py)**: Script uji integrasi untuk memastikan preprocessor, scaler, dan model berjalan sinkron.
-* **`results/models/`**:
-  * `best_model.pkl`: Serialisasi model terbaik (Logistic Regression / Random Forest).
-  * `preprocessor.pkl`: Serialisasi encoder kategori (dari fitting training data).
-  * `scaler.pkl`: Serialisasi standardizer data numerik.
-  * `feature_metadata.pkl`: Serialisasi range numerik & kelas kategori untuk UI dinamis.
-
-## Modul Utama di src
-
-- `src/data_loader.py` untuk membaca data.
-- `src/preprocessing.py` untuk handling missing value, encoding, dan scaling.
-- `src/model.py` untuk split data, training, cross-validation, dan GridSearchCV.
-- `src/evaluation.py` untuk accuracy, precision, recall, F1, confusion matrix, dan ROC curve.
-- `src/clustering.py` untuk KMeans, silhouette score, dan adjusted rand index.
-
-## Library Inti
-
-- pandas, numpy, scipy
-- matplotlib, seaborn, plotly
-- scikit-learn
-- jupyter, ipython
-
-## Catatan Penting
-
-- Data asli tetap di `data/raw/`.
-- Hasil proses akan dibuat saat notebook dijalankan.
-- Kalau ingin versi penjelasan yang lebih singkat, buka [START_HERE.md](START_HERE.md).
-
-### Error: "ModuleNotFoundError: No module named 'pandas'"
-```bash
-# Solution:
-pip install pandas
-# atau install semua requirements:
-pip install -r requirements.txt
-```
-
-### Error: "No such file or directory: 'data/raw/dataset.csv'"
-```
-• Pastikan file dataset ada di folder data/raw/
-• Check path relatif dari working directory
-• Gunakan absolute path jika perlu
-```
-
-### Memory Error pada large dataset
-```python
-# Solution: Baca data dalam chunks
-df = pd.read_csv('file.csv', chunksize=10000)
-for chunk in df:
-    # Process chunk
-    pass
-```
-
-### Slow performance saat training
-```python
-# Solution: 
-# 1. Gunakan n_jobs=-1 untuk parallel processing
-# 2. Reduce feature size
-# 3. Gunakan sample data untuk testing
-```
+4. Buka peramban (browser) Anda dan akses alamat lokal yang diberikan (biasanya `http://localhost:8501`).
 
 ---
 
-## 📞 Support & Resources
-
-### Documentation
-- [Pandas Documentation](https://pandas.pydata.org/)
-- [Scikit-learn Documentation](https://scikit-learn.org/)
-- [Matplotlib Documentation](https://matplotlib.org/)
-- [Jupyter Documentation](https://jupyter.org/)
-
-### Useful Tutorials
-- Data cleaning with Pandas
-- Machine learning with Scikit-learn
-- Data visualization with Matplotlib & Seaborn
-- Feature engineering techniques
-
----
-
-## 📝 Checklist Praktikum
-
-Gunakan checklist ini untuk memastikan semua step selesai:
-
-- [ ] Data loaded dan diinspeksi
-- [ ] EDA completed dengan insights
-- [ ] Preprocessing selesai (missing values, outliers, encoding)
-- [ ] Feature engineering applied
-- [ ] Data split menjadi train-test
-- [ ] Models trained dan evaluated
-- [ ] Best model selected
-- [ ] Model saved
-- [ ] Hasil didokumentasikan
-
----
-
-## 📄 License
-
-Modul praktikum untuk keperluan pendidikan.
-
----
-
-**Happy Learning! 🚀**
-
-Untuk pertanyaan atau issues, silakan discuss atau buat pull request.
+## 📖 Panduan Tambahan
+Untuk penjelasan yang lebih detail mengenai isi kelas dan metode dari setiap modul di dalam folder `src/`, silakan merujuk ke berkas [SRC_PENJELASAN.md](SRC_PENJELASAN.md).
